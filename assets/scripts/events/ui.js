@@ -3,7 +3,7 @@
 // const app = require('../app.js')
 
 const createEventSuccess = function () {
-  console.log('You successfully created a event')
+  console.log('You successfully created an event')
 }
 
 const createEventError = function (response) {
