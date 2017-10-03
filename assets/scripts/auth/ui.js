@@ -14,6 +14,9 @@ const signUpError = function (response) {
 const signInSuccess = function (data) {
   console.log('passing through ui.js')
   console.log('you successfully signed in')
+  $('#show-table').show()
+  $('#signup-account').hide()
+  $('#signin-account').hide()
   app.user = data.user
 }
 
@@ -33,6 +36,8 @@ const changePasswordError = function (response) {
 const signOutSuccess = function () {
   console.log('passing through ui.js')
   console.log('you successfully signed out!')
+  $('#signin-account').show()
+  $('#signup-account').show()
   app.user = null
 }
 
