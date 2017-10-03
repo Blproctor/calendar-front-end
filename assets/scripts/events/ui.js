@@ -19,7 +19,23 @@ const updateEventError = function () {
 }
 
 const getAllEventsSuccess = function (data) {
-  console.log('passing through ui.js')
+  console.log('first line inside function in ui.js')
+  console.log(data.events)
+  // incorporating Handlebars into function
+  $(() => {
+    const theTemplateScript = $('#events-template').html()
+    // Compile the template
+    const theTemplate = Handlebars.compile(theTemplateScript)
+    // Define the data object
+    const context = {
+      fields: data.events
+    }
+    // Pass the data to template
+    const theCompiledHtml = theTemplate(context)
+    // Add compiled html to page
+    $('#table-container').prepend(theCompiledHtml)
+    console.log('last line within function in ui.js')
+  })
 }
 
 const getAllEventsError = function (response) {

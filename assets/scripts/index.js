@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events.js')
+const eventEvents = require('./events/events.js')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -18,4 +19,6 @@ $(() => {
   $('#signin-account').on('submit', authEvents.signIn)
   $('#change-password').on('submit', authEvents.changePassword)
   $('#signout-account').on('submit', authEvents.signOut)
+  // click handler to show the weekly events
+  $('#show-table').on('click', eventEvents.getAllEvents)
 })

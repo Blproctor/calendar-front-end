@@ -43,6 +43,36 @@
         <button type="submit" id="signout-button">Sign out</button>
       </form>
 
-      <p>Let's make a front end!</p>
+      <button id='show-table' class='button' type='submit'>Show Weekly Events</button>
+
+      <div id='table-container'>
+      </div>
+
+      <script id="events-template" type="text/x-handlebars-template">
+        <h1>Weekly Events</h1>
+          <br>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Text</th>
+              </tr>
+            </thead>
+            <tbody id='append-events'>
+            {{#each fields}}
+            <form class='row-form' id={{_id}}>
+              <tr class={{_id}}>
+                <td>{{_id}}</td>
+                <td>{{text}}</td>
+                <td><input type='string' name='text' value={{text}}></td>
+                <td><a class="button" data-id={{_id}}>Update</a></td>
+                <td><a class="button" data-id={{_id}}>Delete</a></td>
+              </tr>
+            </form>
+            {{/each}}
+            </tbody>
+          </table>
+      </script>
+
     </body>
 </html>
