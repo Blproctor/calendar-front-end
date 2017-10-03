@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://git.heroku.com/protected-hamlet-58469.git',
+    development: 'http://localhost:4741'
   }
 }
 
