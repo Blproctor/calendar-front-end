@@ -21,4 +21,6 @@ $(() => {
   $('#signout-account').on('submit', authEvents.signOut)
   // click handler to show the weekly events
   $('#show-table').on('click', eventEvents.getAllEvents)
+  // hide show-table button until user successfully signs in
+  $('#show-table').hide()
 })
