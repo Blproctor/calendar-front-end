@@ -40,6 +40,7 @@ const changePasswordSuccess = function () {
   $('#signin-account').show()
   $('#show-table').hide()
   $('#table-container').hide()
+  $('#create-event').hide()
 }
 
 const changePasswordError = function (response) {
