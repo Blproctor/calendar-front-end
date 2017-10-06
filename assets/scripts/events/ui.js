@@ -2,7 +2,7 @@
 
 // const app = require('../app.js')
 
-const createEventSuccess = function () {
+const createEventSuccess = function (data) {
   console.log('You successfully created an event')
 }
 
@@ -15,12 +15,14 @@ const updateEventSuccess = function () {
 }
 
 const updateEventError = function () {
-  console.log('your update failed')
+  console.log('nice try dude, no dice on that update, sorry')
 }
 
 const getAllEventsSuccess = function (data) {
   console.log('first line inside function in ui.js')
   console.log(data.events)
+  $('#table-container').empty()
+  $('#table-container').show()
   // incorporating Handlebars into function
   $(() => {
     const theTemplateScript = $('#events-template').html()
@@ -44,10 +46,12 @@ const getAllEventsError = function (response) {
 
 const deleteEventSuccess = function (data) {
   console.log(data)
+  console.log('you successfully deleted an event!')
 }
 
 const deleteEventError = function (error) {
   console.error(error)
+  console.log('you never had your car')
 }
 
 const getEventSuccess = function (data) {

@@ -23,4 +23,16 @@ $(() => {
   $('#show-table').on('click', eventEvents.getAllEvents)
   // hide show-table button until user successfully signs in
   $('#show-table').hide()
+  $('#create-event').on('submit', eventEvents.createEvent)
+  // $('#show-event').on('click', eventEvents.getEvent)
+  $('#create-event').hide()
+  $('#update-event').hide()
+  $('#delete-event').hide()
+  $('#change-password').hide()
+  $('#signout-account').hide()
+  $('#delete-event-button').on('click', eventEvents.deleteEvent)
+  $('#update-event').on('submit', eventEvents.updateEvent)
 })
+
+$(document).on('click', '#update-MEH', eventEvents.updateEvent)
+$(document).on('click', '#delete-event-button', eventEvents.deleteEvent)

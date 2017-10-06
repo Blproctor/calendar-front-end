@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Weekly Events Tracker</title>
+      <title>Upcoming Events</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,11 +10,13 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
       <!-- Handlebars Script -->
       <script src=https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js></script>
     </head>
+
     <body class="container-fluid">
-      <h1>Weekly Events Tracker</h1>
+      <h1>Upcoming Events</h1>
 
       <form class="accounts" id="signup-account">
         <h1> Sign up!</h1>
@@ -32,47 +34,66 @@
       </form>
 
       <form class="accounts" id="change-password">
+        <div id="change-pw-h1">
         <h1> Change password!</h1>
+        </div>
         <input required type="password" name="passwords[old]" placeholder="Old password">
         <input required type="password" name="passwords[new]" placeholder="New password">
         <button type="submit" id="change-password-button">Change password</button>
       </form>
 
       <form class="accounts" id="signout-account">
+        <div id="sign-out-h1">
         <h1> Sign out!</h1>
+        </div>
         <button type="submit" id="signout-button">Sign out</button>
       </form>
 
-      <button id='show-table' class='button' type='submit'>Show Weekly Events</button>
+      <button id='show-table' class='button' type='submit'>Show All Events</button>
 
       <div id='table-container'>
       </div>
 
+      <form class="events" id="create-event">
+          <h1>Create Event</h1>
+          <input required type='text' name='event[text]' placeholder='Event'>
+          <button type='submit' id='create-event-button'>Create Event</button>
+        </form>
+        <br>
+
+      <form class="events" id="delete-event">
+          <h1>Delete Event</h1>
+          <input required type='text' name='event[text]' placeholder='Event'>
+          <button type='submit' id='delete-event-button'>Delete Event</button>
+        </form>
+
+
       <script id="events-template" type="text/x-handlebars-template">
-        <h1>Weekly Events</h1>
-          <br>
-          <table class='table'>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Text</th>
-              </tr>
-            </thead>
-            <tbody id='append-events'>
-            {{#each fields}}
-            <form class='row-form' id={{_id}}>
-              <tr class={{_id}}>
-                <td>{{_id}}</td>
-                <td>{{text}}</td>
-                <td><input type='string' name='text' value={{text}}></td>
-                <td><a class="button" data-id={{_id}}>Update</a></td>
-                <td><a class="button" data-id={{_id}}>Delete</a></td>
-              </tr>
-            </form>
-            {{/each}}
-            </tbody>
-          </table>
-      </script>
+        <div id="weekly-events-h1">
+          <h1>Upcoming Events</h1>
+          </div>
+            <br>
+            <div class="block-title"></div>
+              <table class='table'>
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                  </tr>
+                </thead>
+                <tbody id='append-events'>
+                {{#each fields}}
+                <form class='row-form' id={{_id}}>
+                  <tr class={{_id}}>
+                    <td>{{text}}</td>
+                    <td><input id="thing-to-update" type='string' name='text' value={{text}}></td>
+                    <td><button id="update-MEH" data-id={{_id}}>Update</button></td>
+                    <td><button id="delete-event-button" data-id={{_id}}>Delete</button></td>
+                  </tr>
+                </form>
+                {{/each}}
+              </tbody>
+            </table>
+        </script>
 
     </body>
 </html>

@@ -7,6 +7,9 @@ const createEvent = function (data) {
   return $.ajax({
     url: app.host + '/events',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data
   })
 }
@@ -22,7 +25,7 @@ const getAllEvents = function () {
   })
 }
 
-const getEvent = function () {
+const getEvent = function (data) {
   console.log('passing through events api.js')
   return $.ajax({
     url: app.host + '/events/' + app.events._id,
@@ -33,22 +36,26 @@ const getEvent = function () {
   })
 }
 
-const updateEvent = function (data) {
+const updateEvent = function (data, id) {
   console.log('passing through events api.js')
   return $.ajax({
-    url: app.host + '/events/' + app.event._id,
+    url: app.host + '/events/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
-    data
+    data: {
+      'event': {
+        'text': data
+      }
+    }
   })
 }
 
-const deleteEvent = function () {
+const deleteEvent = function (id) {
   console.log('passing through events api.js')
   return $.ajax({
-    url: app.host + '/events/' + app.event._id,
+    url: app.host + '/events/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token
