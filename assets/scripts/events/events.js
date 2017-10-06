@@ -32,15 +32,17 @@ const getEvent = function (event) {
 
 const updateEvent = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  eventApi.updateEvent(data)
+  const data = $('#thing-to-update').val()
+  const id = this.getAttribute('data-id')
+  eventApi.updateEvent(data, id)
     .then(eventUi.updateEventSuccess)
     .catch(eventUi.updateEventError)
 }
 
 const deleteEvent = function (event) {
+  const id = this.getAttribute('data-id')
   event.preventDefault()
-  eventApi.deleteEvent()
+  eventApi.deleteEvent(id)
     .then(eventUi.deleteEventSuccess)
     .catch(eventUi.deleteEventError)
 }
