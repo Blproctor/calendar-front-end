@@ -22,8 +22,8 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#signout-account').show()
   $('#create-event').show()
-  $('#update-event').show()
-  $('#delete-event').show()
+  // $('#update-event').show()
+  // $('#delete-event').show()
   app.user = data.user
 }
 
